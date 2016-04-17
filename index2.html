@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+ <html>
+   <head>
+     <script src="https://d3js.org/d3.v3.min.js" charset="utf-8"></script>
+   </head>
+   <body>
+     <script type="text/javascript">
+     var myObj = [
+      {
+        value: 0,
+        name: "Hola!"
+      },
+      {
+        value: 0,
+        name: "Adios!"
+      },
+      {
+        value: 0,
+        name: "Texto1!"
+      },
+      {
+        value: 0,
+        name: "Texto2"
+      },
+      {
+        value: 0,
+        name: "Texto 3!!"
+      },
+      {
+        value: 0,
+        name: "Mi texto largo!"
+      },
+     ];
+      d3.select("body").selectAll("p")
+        .data(myObj)
+        .enter()
+        .append("div")
+          .style("margin-left", function(d, i) { return i * 10 + "px"})
+          .text(function(d) {
+            return d.name;
+          })
+          .on("click", function(d, i) {
+            d3.select(this)
+              .transition()
+              .duration(1000)
+              .style("margin-left", function() { return i * 100 + "px"; })
+          })
+     </script>
+   </body>
+ </html>
