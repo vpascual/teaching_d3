@@ -5,37 +5,14 @@
    </head>
    <body>
      <script type="text/javascript">
-     var myObj = [
-      {
-        value: 0,
-        name: "Hola!"
-      },
-      {
-        value: 0,
-        name: "Adios!"
-      },
-      {
-        value: 0,
-        name: "Texto1!"
-      },
-      {
-        value: 0,
-        name: "Texto2"
-      },
-      {
-        value: 0,
-        name: "Texto 3!!"
-      },
-      {
-        value: 0,
-        name: "Mi texto largo!"
-      },
-     ];
-      d3.select("body").selectAll("p")
+     var myObj = [1, 2, 4, 5];
+      d3.select("body").selectAll("div")
         .data([1, 2, 3, 4, 5])
         .enter()
         .append("div")
-          .style("margin-left", function(d) { return d + "px"})
+          .style("margin-left", function(d) { 
+            console.log(d)
+            return d + "px"})
           .text(function(d) { return d; })
           .on("click", function(d) {
             d3.select(this)
